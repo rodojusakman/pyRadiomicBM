@@ -288,3 +288,8 @@ def my_main_funct(mri_folder):
     rad_features_complete = [v for k, v in rad_features_complete.groupby('patient_id')]
 
     return rad_features_complete
+
+import sys
+
+if __name__ == "__main__":
+    my_main_funct(sys.argv[1])
