@@ -287,9 +287,20 @@ def my_main_funct(mri_folder):
 
     rad_features_complete = [v for k, v in rad_features_complete.groupby('patient_id')]
 
+
+
+    import pandas as pd
+
     return rad_features_complete
 
-import sys
+
 
 if __name__ == "__main__":
-    my_main_funct(sys.argv[1])
+    import sys
+    results=my_main_funct(sys.argv[1])
+
+    df=pd.DataFrame()
+    for i, df in enumerate(results):
+        df.to_csv(f"radiomics_patient_{i}.csv", index=False)
+
+    print("Saved radiomics outputs!")
