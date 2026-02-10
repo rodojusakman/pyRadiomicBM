@@ -297,6 +297,7 @@ def my_main_funct(mri_folder):
 
 if __name__ == "__main__":
     import sys
+    print('starting the program')
     results=my_main_funct(sys.argv[1])
 
     df=pd.DataFrame()
