@@ -270,8 +270,9 @@ def my_main_funct(mri_folder):
         all_masks_list.append(all_masks)
     #-----------------------------------------------------------------------------------
 
+    print(' all mask',all_masks_list)
     data__list = Parallel(n_jobs=-1)(delayed(retrieve_data)(i,j) for i,j in zip(images_only, all_masks_list))
-
+    print('after data')
     flat_list = []
     for xs in data__list:
         for x in xs:
