@@ -238,7 +238,7 @@ def return_radiomics(preprocess_list, input_bin_width):
     d1_roi_all_df['rads'] = 'mask_all' + '__' + tmp[2].split('.')[0] + '__' + tmp[1].replace(' ','_') + '__' + d1_roi_all_df['rads'].values
 
     df_overall = pd.concat([d1_expert_df, d1_roi_all_df], ignore_index=True)
-    df_overall['rads'] = df_overall['rads'].replace(replacers, regex=True)
+    #df_overall['rads'] = df_overall['rads'].replace(replacers, regex=True)
 
     return df_overall
 #-----------------------------------------------------------------------------------------------------------------------
