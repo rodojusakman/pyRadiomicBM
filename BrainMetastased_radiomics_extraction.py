@@ -274,7 +274,9 @@ def my_main_funct(mri_folder):
 
     data__list = []
     for i, j in zip(images_only, all_masks_list):
+        print('run ')
         result = retrieve_data(i, j)  # run one at a time
+        print( ' run done')
         data__list.append(result)
     #data__list = Parallel(n_jobs=-1)(delayed(retrieve_data)(i,j) for i,j in zip(images_only, all_masks_list))
     print('after data')
