@@ -262,6 +262,8 @@ def my_main_funct(mri_folder):
 
     all_masks = [x.replace('\\', '/') for x in barlist if "mask" in x]    #--->for windows
 
+
+    print('all mask',all_masks)
     images_only = [x.replace('\\', '/') for x in barlist if "mask" not in x]   #---> for windows
     all_masks_list = []
     for i in range(len(images_only)):
@@ -299,6 +301,8 @@ if __name__ == "__main__":
     import sys
     print('starting the program')
     results=my_main_funct(sys.argv[1])
+
+    
 
     df=pd.DataFrame()
     for i, df in enumerate(results):
