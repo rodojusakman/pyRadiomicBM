@@ -304,4 +304,5 @@ if __name__ == "__main__":
     for i, df in enumerate(results):
         df.to_csv(f"radiomics_patient_{i}.csv", index=False)
 
+    print('df ',df.head(5))
     print("Saved radiomics outputs!")
