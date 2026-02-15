@@ -289,7 +289,7 @@ def my_main_funct(mri_folder):
 
 
 
-    import pandas as pd
+    #import pandas as pd
 
     return rad_features_complete
 
