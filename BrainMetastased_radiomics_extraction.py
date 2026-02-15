@@ -292,8 +292,16 @@ def my_main_funct(mri_folder):
     bin_width_list = []
     bin_width_list.extend(input_bin_width for i in range(len(flat_list)))
 
-    rad_features = Parallel(n_jobs=-1)(delayed(return_radiomics)(i,j) for i,j in zip(flat_list,bin_width_list))
+
+    rad_features = []
+
+    for i, j in zip(flat_list, bin_width_list):
+        rad_features.append(return_radiomics(i, j))
+
+    print('step a')
+    #rad_features = Parallel(n_jobs=-1)(delayed(return_radiomics)(i,j) for i,j in zip(flat_list,bin_width_list))
     rad_features = pd.concat(rad_features)
+    print('step b')
     rad_features_complete = rad_features.drop_duplicates(subset=['rads', 'patient_id'], keep='first')
     rad_features_complete = rad_features_complete.rename(columns={'rads': 'Radiomics Feature', 'value': 'Radiomics Value'})
 
