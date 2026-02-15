@@ -277,6 +277,8 @@ def my_main_funct(mri_folder):
         for x in xs:
             flat_list.append(x)
 
+
+    print(' in the middle')
     #-----------------------------------------------------------------------------------
     input_bin_width = 5
     bin_width_list = []
@@ -289,7 +291,7 @@ def my_main_funct(mri_folder):
 
     rad_features_complete = [v for k, v in rad_features_complete.groupby('patient_id')]
 
-
+    print(' check rad_features')
 
     #import pandas as pd
 
