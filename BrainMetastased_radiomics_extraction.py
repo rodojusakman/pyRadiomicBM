@@ -278,12 +278,12 @@ def my_main_funct(mri_folder):
         result = retrieve_data(i, j)  # run one at a time
         print( ' run done')
         data__list.append(result)
-    #data__list = Parallel(n_jobs=-1)(delayed(retrieve_data)(i,j) for i,j in zip(images_only, all_masks_list))
-    print('after data')
-    flat_list = []
-    for xs in data__list:
-        for x in xs:
-            flat_list.append(x)
+    data__list = Parallel(n_jobs=-1)(delayed(retrieve_data)(i,j) for i,j in zip(images_only, all_masks_list))
+    #print('after data')
+    #flat_list = []
+    #for xs in data__list:
+    #    for x in xs:
+    #        flat_list.append(x)
 
 
     print(' in the middle')
@@ -293,13 +293,13 @@ def my_main_funct(mri_folder):
     bin_width_list.extend(input_bin_width for i in range(len(flat_list)))
 
 
-    rad_features = []
+    #rad_features = []
 
-    for i, j in zip(flat_list, bin_width_list):
-        rad_features.append(return_radiomics(i, j))
+    #for i, j in zip(flat_list, bin_width_list):
+    #    rad_features.append(return_radiomics(i, j))
 
     print('step a')
-    #rad_features = Parallel(n_jobs=-1)(delayed(return_radiomics)(i,j) for i,j in zip(flat_list,bin_width_list))
+    rad_features = Parallel(n_jobs=-1)(delayed(return_radiomics)(i,j) for i,j in zip(flat_list,bin_width_list))
     rad_features = pd.concat(rad_features)
     print('step b')
     rad_features_complete = rad_features.drop_duplicates(subset=['rads', 'patient_id'], keep='first')
